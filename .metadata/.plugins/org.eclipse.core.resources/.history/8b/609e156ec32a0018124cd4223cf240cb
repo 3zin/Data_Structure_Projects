@@ -1,0 +1,173 @@
+import java.io.*;
+import java.util.Stack;
+
+/*
+class My_node{
+	
+	char item;
+	My_node next;
+	
+	public My_node(char item){
+		this.item = item;
+		this.next = null;
+	}
+	
+	public My_node(char item, My_node next){
+		this.item = item;
+		this.next = next;
+	}
+	
+}
+
+class My_Stack{
+	
+	private My_node top;
+	
+	public My_Stack(){
+		top = null;
+	}
+	
+	public boolean isEmpty(){
+		return top == null;
+	}
+	
+	public void push(char item){
+		top = new My_node(item, top);
+	}
+	
+	public char pop() throws Exception{
+		if(!this.isEmpty()){
+			My_node tmp = top.next;
+			top = top.next;
+			return tmp.item;
+		}else{
+			throw new Exception("empty");
+		}
+	}
+}*/
+
+
+
+public class CalculatorTest
+{
+	public static void main(String args[])
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		while (true)
+		{
+			try
+			{
+				String input = br.readLine();
+				if (input.compareTo("q") == 0)
+					break;
+
+				command(input);
+			}
+			catch (Exception e)
+			{
+				System.out.println("입력이 잘못되었습니다. 오류 : " + e.toString());
+			}
+		}
+	}
+
+	private static void command(String input)
+	{		
+		System.out.println(preProcess(input));
+		
+	}
+	
+	private static int op_prec(char op){
+		// 연산자의 우선순위를 반환하는 메소드. unary - 은 미리 ~ 로 변환되었다고 가정. 
+		switch(op){
+		case '^' :
+			return 4;
+		case '~' :
+			return 3;
+		case '*' :
+		case '/' :
+		case '%' :
+			return 2;
+		case '+' :
+		case '-' :
+			return 1;
+		default :
+			return 0;
+		}
+	}
+	
+	public static boolean isNumber(char a){
+		// 숫자일 경우 true 반환
+		return (a>='0' && a<='9');
+	}
+	
+	public static String preProcess(String input){
+		// '-' 이 unary인지 binary인지 판단한 후, unary일 경우 '~' 로 변환한다
+		// '-' 이 숫자나 ')' 뒤에 나올 경우 binary, 그 이외에는 unary로 판단 가능. 
+		 
+		input = input.replaceAll(" ", ""); // 공백을 삭제한다.
+		StringBuffer sb = new StringBuffer(input);
+		
+		if(sb.charAt(0) == '-'){
+			sb.setCharAt(0, '~');
+		}
+		
+		for(int i=1;i<sb.length();i++){
+			if(sb.charAt(i) == '-' && !(sb.charAt(i-1) == ')' || isNumber(sb.charAt(i-1)))){
+				sb.setCharAt(i, '~');
+			}
+		}
+		
+		return sb.toString();
+	}
+	
+	/*
+	public static String parsing(String input) throws Exception{
+		
+		
+		StringBuffer result = new StringBuffer();
+		StringBuffer tmp_number = new StringBuffer();
+		My_Stack stack = new My_Stack();
+		
+		int i = 0;
+		
+		while(true){
+			
+			char tmp = input.charAt(i);
+			
+			if(tmp>='0' && tmp<= '9'){// (1) 숫자일 경우 
+				
+				while(input.charAt(i)>='0' && input.charAt(i)<= '9'){
+					tmp_number.append(input.charAt(i));
+					i++;
+				}
+				result.append(tmp_number.toString());
+				tmp_number = new StringBuffer(); //초기화 
+				continue;//다시 처음으로 
+				
+			}else if(tmp=='('){// (2) 괄호일 경우 
+				stack.push(tmp);//집어넣는다
+				
+			}else if(tmp==')'){ // '(' 나올때까지 pop
+				char b_tmp = stack.pop();
+				while(b_tmp !='('){ 
+					result.append(b_tmp);
+					b_tmp = stack.pop();
+				}
+				
+			}else{// 연산자일 경우 
+				
+				
+				
+			}
+			
+			i++;
+		}
+		
+	}
+	
+	public static void evaluate(String input){
+		
+	}
+	*/
+}
