@@ -154,7 +154,8 @@ public class SortingTest
     private static int[] DoHeapSort(int[] value)
     {
         // TODO : Heap Sort 를 구현하라.
-    	// 아직 Tree를 배우지 않았음.
+    	
+    	
     	
         return (value);
     }
@@ -166,61 +167,17 @@ public class SortingTest
     private static int[] DoMergeSort(int[] value)
     {
         // TODO : Merge Sort 를 구현하라.
-    	// 일반적인 Recursive form으로 구현했음. 
-    	// input과 같은 크기의 tmp list를 별도로 생성해서 복사하는 방식을 취함. 
-    	int[] tmp = new int[value.length];
-    	mergeSort(value, tmp, 0, value.length-1); 
+    	
         return (value);
     }
-    
-    private static void mergeSort(int[] value, int[] tmp, int l, int r)
-    {
-    	if(l<r){
-    		int m = (l+r)/2;
-    		mergeSort(value, tmp, l, m); // [left ~ mid]
-    		mergeSort(value, tmp, m+1, r); // [mid+1 ~ right]
-    		merge(value, tmp, l, m, r); // merge the current halves
-    	}
-    }
-    
-    private static void merge(int[] value, int[] tmp, int l , int m, int r)
-    {
-    	
-    	int first_l = l;
-    	int first_r = m; // [left ~ mid]
-    	int second_l = m+1;
-    	int second_r = r; // [mid+1 ~ right]
-    	int index = l; // index for tmp[]
-    	
-    	
-    	while(first_l <= first_r && second_l <= second_r){
-    		if(value[first_l] < value[second_l]){
-    			tmp[index++] = value[first_l++];
-    		}else{
-    			tmp[index++] = value[second_l++];
-    		}
-    	}
-    	
-    	while(first_l <= first_r){ // Optional leftovers
-    		tmp[index++] = value[first_l++];
-    	}
-    	
-    	while(second_l <= second_r){ // Optional leftovers
-    		tmp[index++] = value[second_l++];
-    	}
-    	
-    	for(int i=l ; i<=r ; i++){ //Copy from tmp[] to value[]
-    		value[i] = tmp[i];
-    	}   	
-    }
-    
  
+    
+    
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     private static int[] DoQuickSort(int[] value)
     {
         // TODO : Quick Sort 를 구현하라.
-    	// 아직 대표적인 방법을 알지 못함 + 다른 정렬보다 최적화가 중요한 지점일 듯 (pivot 선정...)
     	
         return (value);
     }
@@ -229,8 +186,6 @@ public class SortingTest
     private static int[] DoRadixSort(int[] value)
     {
         // TODO : Radix Sort 를 구현하라.
-    	// 아직 배우지 않았음. 
-    	
     	
         return (value);
     }
