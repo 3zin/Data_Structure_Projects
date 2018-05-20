@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 /*
  * 2018.3.19. 수정 
- * 각주 처리 대부분 완료. 
+ * 각주 처리 완료. 
  * 검토 완료. 
- * test case  "big.1.in.txt", "big.2.in.txt", "datain" 통과
+ * test case  "big.1.in.txt", "big.2.in.txt", "datain", "input.txt" 통과
  * 
  */
  
@@ -138,7 +138,7 @@ public class BigInteger
     	/*
     	 
     	  간단하게 n^2 이중루프로 구현함. input 자체가 커봤자 100이기 때문에 overhead를 고려해 카라추바 divide&conquer 사용하지 않음. 
-    	  덧셈으로 구현하는 방법도 존재. (하지만 최악의 경우 배열 shifting을 무시한다고 해도 덧셈 1000번으로 더 비효율적 - *덧셈 자체가 O(n)..)
+    	  덧셈으로 구현하는 방법도 존재함. 하지만 최악의 경우 배열 shifting을 무시한다고 해도 덧셈 1000번으로 더 비효율적(덧셈 자체가 O(n)이므로..)
     	
     	*/
     	
