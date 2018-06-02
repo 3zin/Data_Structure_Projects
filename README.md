@@ -3,9 +3,9 @@
 
 > 2018.Spring
 
-> Seoul National UniverSity
+Seoul National UniverSity
 
-> 문병로t 자료구조 과제
+문병로t 자료구조 과제
 
 
 
