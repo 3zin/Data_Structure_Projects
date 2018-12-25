@@ -1,14 +1,14 @@
 # Data_Structure_Projects
 -------------------------------------
 
-![ex_moon](./20100122135609.jpg)
+![ex_moon](./123.jpg)
 
-> 2018.Spring<br>Seoul National University<br>문병로t 자료구조 과제
-
-
+> 2018.Fall<br>Seoul National University<br>김진수t 컴퓨터구조 과제
 
 
 
+
+Not all homeworks are perfect
 
 All rights reserved by 3zin
 
